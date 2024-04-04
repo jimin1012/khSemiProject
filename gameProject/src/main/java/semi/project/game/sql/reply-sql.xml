@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>reply-sql.xml</comment>
+
+	<!-- 댓글 목록 노출 (비동기) -->
+	<entry key="selectReplyList">
+		SELECT REPLY_NO, REPLY_CONTENT, 
+		    TO_CHAR(REPLY_DATE, 'YYYY.MM.DD HH24:MI:SS') REPLY_DATE,
+		    BOARD_NO, MEMBER_NO, MEMBER_NAME, MEMBER_PROFILE
+		FROM REPLY
+		JOIN MEMBER USING(MEMBER_NO)
+		WHERE BOARD_NO = ?
+		ORDER BY REPLY_NO DESC
+	</entry>
+	
+	<!-- 댓글 삭제 (DB에 완전 삭제) -->
+	<entry key="deleteReply">
+		DELETE FROM REPLY
+		WHERE REPLY_NO = ?
+	</entry>
+
+	<!-- 댓글작성 -->
+	<entry key="replyInsert">
+		INSERT INTO REPLY VALUES(SEQ_REPLY_NO.NEXTVAL,?, DEFAULT, ?,?)
+	</entry>
+</properties>

@@ -1,0 +1,177 @@
+@charset "UTF-8";
+*{box-sizing: border-box;}
+body{margin: 0 auto;}
+/* 제일 큰 감싸는 영역 */
+.wrap{
+    /* 최소값만 정한이유는 안에 요소크기에 맞게 크기가 더 늘어날 수 있게 하려고 */
+    min-width: 1200px; /* min-width : 최소 width */
+    min-height: 100vh; 
+    display: flex;
+    flex-direction: row-reverse;
+    text-align: center;
+    
+}
+
+.main-footer-wrap{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    min-width: 1000px;
+  }
+
+  
+
+
+/* main 시작 */
+
+main{
+    margin-right:5px;
+    min-width: 1000px;
+    background-color: sandybrown;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background: url("https://png.pngtree.com/thumb_back/fw800/background/20230527/pngtree-tetris-wallpaper-hd-1080p-image_2693812.jpg");
+    background-size: cover;
+    /* opacity: 0.9; */
+}
+  
+  .header {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 1rem;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .stage {
+    margin: 0 auto;
+    outline: 2px solid white;
+    background-color: rgba(134, 134, 134, 0.8);
+  }
+  .stage > tr {
+    width: 100%;
+    height: 25px;
+  }
+  .stage > tr > td {
+    width: 25px;
+    height: 25px;
+    outline: 1px solid white;
+  }
+  
+.level-score-wrap{
+  display: flex;
+  font-size: 15px;
+  font-weight: bold;
+  flex-direction: column;
+  margin-right: 20px;
+  margin-top: 100px;
+
+}
+
+.level_container {
+    width: 100px;
+    height: 100px;
+    background-color: white;
+    border-radius: 35%;
+    
+}
+.score_container{
+    margin-top: 20px;
+    width: 100px;
+    height: 100px;
+    background-color: white;
+    border-radius: 35%;
+}
+
+
+  .level {
+    display: flex;
+    flex-direction: column;
+    width: 100px;
+    align-items: center;
+  }
+  .tetris:first-child {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+  }
+  .tetris {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-top: 10px;
+  }
+  .next {
+    display: flex;
+    flex-direction: column;
+    width: 100px;
+    margin-left: 1em;
+  }
+  
+  .popup {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: fixed;
+    width: 400px;
+    height: 150px;
+    /* background-color: rgba(0, 0, 0, 0.7); */
+    background-color: white;
+    /* left: 0; */
+    top: 0;
+    color: #000;
+    
+    z-index: 1;
+  }
+
+  #ptxt1{
+    margin: 0;
+    font-weight: bold;
+    font-size: 24px;
+  }
+
+  #ptxt2{
+    
+  }
+
+  .popup >div button {
+    padding: 0.5rem 1rem;
+    color: #fff;
+    background-color: salmon;
+    border: none;
+    cursor: pointer;
+    transition: ease-in, 300ms;
+  }
+  .popup >div button:hover {
+    transform: scale(1.1);
+  }
+  
+  .square {
+    background-color: #cc0b10;
+  }
+  .L {
+    background-color: #369a30;
+  }
+  .L2 {
+    background-color: #1265a6;
+  }
+  .I {
+    background-color: #5ab0bd;
+  }
+  .Z {
+    background-color: #da8400;
+  }
+  .Z2 {
+    background-color: #894085;
+  }
+  .H {
+    background-color: #ebd500;
+  }
+
+
+
+

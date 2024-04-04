@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<comment>member-sql.xml</comment>
+
+	<entry key="login">
+		SELECT
+		MEMBER_NO,MEMBER_NAME,MEMBER_ID,MEMBER_PROFILE,MANAGER_YN
+		FROM MEMBER
+		WHERE MEMBER_ID = ?
+		AND MEMBER_PW = ?
+		AND STATUS_YN = 'N'
+	</entry>
+	
+	<!-- 내 정보 수정 -->
+	<entry key="updateMyInfo">
+		UPDATE MEMBER SET MEMBER_NAME = ?, MEMBER_PROFILE = ?
+		WHERE MEMBER_NO = ?
+	</entry>
+	<entry key="idFind">
+		SELECT MEMBER_ID FROM MEMBER WHERE MEMBER_NAME = ? AND
+		MEMBER_BIRTHDAY = ?
+		AND STATUS_YN = 'N'
+	</entry>
+	<entry key="pwFind">
+		SELECT COUNT(*) FROM MEMBER WHERE MEMBER_ID = ? AND
+		MEMBER_BIRTHDAY = ?
+		AND STATUS_YN = 'N'
+	</entry>
+	<entry key="pwUpdate">
+		UPDATE MEMBER SET MEMBER_PW= ? WHERE MEMBER_ID = ? AND
+		MEMBER_BIRTHDAY = ?
+	</entry>
+	
+	<!-- 내 정보 조회에서 스코어 조회 -->
+	<entry key="selectScoreMax">
+		SELECT MAX(SCORE) SCORE, GAME_NAME,GAME_NO FROM 
+		RANK JOIN GAME USING(GAME_NO)
+		WHERE MEMBER_NO = ?
+		GROUP BY GAME_NAME, GAME_NO 
+		ORDER BY GAME_NO
+	</entry>
+	<entry key="selectScoreMin">
+		SELECT MIN(SCORE) SCORE, GAME_NAME,GAME_NO 
+		FROM RANK 
+		JOIN GAME USING(GAME_NO)
+		WHERE MEMBER_NO = ? AND GAME_NO >= 5
+		GROUP BY GAME_NAME, GAME_NO
+		ORDER BY GAME_NO
+	</entry>
+	
+	<!-- 내 정보 수정(비밀번호 포함) -->
+	<entry key="updateMyInfoPw">
+		UPDATE MEMBER SET MEMBER_NAME = ?, MEMBER_PROFILE = ?, MEMBER_PW = ?
+		WHERE MEMBER_NO = ?
+	</entry>
+	
+	<!-- 회원 탈퇴 -->
+	<entry key="cancellation">
+		UPDATE MEMBER SET
+		STATUS_YN = 'Y'
+		WHERE MEMBER_NO = ?
+	</entry>
+	
+	<entry key="cancellationPw">
+		SELECT MEMBER_PW FROM MEMBER
+		WHERE MEMBER_NO = ?
+	</entry>
+	
+	<!-- 랭킹 조회 -->
+	<entry key="firstSelectScore">
+		SELECT MEMBER_NAME, GAME_NAME, MAX(SCORE) "SCORE", MEMBER_PROFILE, MEMBER_NO
+		FROM MEMBER
+		JOIN RANK USING(MEMBER_NO)
+		JOIN GAME USING(GAME_NO)
+		WHERE GAME_NO = 1
+		GROUP BY MEMBER_NAME, MEMBER_PROFILE, GAME_NAME, MEMBER_NO
+		ORDER BY SCORE DESC
+	</entry>
+	
+	<entry key="secondSelectScoreMax">
+		SELECT MEMBER_NAME, GAME_NAME, MAX(SCORE) "SCORE", MEMBER_PROFILE, MEMBER_NO
+		FROM MEMBER
+		JOIN RANK USING(MEMBER_NO)
+		JOIN GAME USING(GAME_NO)
+		WHERE GAME_NO = ?
+		AND STATUS_YN = 'N'
+		GROUP BY MEMBER_NAME, MEMBER_PROFILE, GAME_NAME, MEMBER_NO
+		ORDER BY SCORE DESC
+	</entry>
+	<entry key="secondSelectScoreMin">
+		SELECT MEMBER_NAME, GAME_NAME, MIN(SCORE) "SCORE", MEMBER_PROFILE, MEMBER_NO
+		FROM MEMBER
+		JOIN RANK USING(MEMBER_NO)
+		JOIN GAME USING(GAME_NO)
+		WHERE GAME_NO = ?
+		AND STATUS_YN = 'N'
+		GROUP BY MEMBER_NAME, MEMBER_PROFILE, GAME_NAME, MEMBER_NO
+		ORDER BY SCORE
+	</entry>
+	
+	<!-- 회원 가입 -->
+	<entry key="signUp">
+		INSERT INTO MEMBER
+      	VALUES (SEQ_MEMBER_NO.NEXTVAL,
+      			?,?,?,https://w7.pngwing.com/pngs/36/333/png-transparent-profile-avatar-person-account-basic-user-interface-icon.png,?,
+        DEFAULT, DEFAULT, ?)
+	</entry>
+	<!-- 매니저로 회원 가입 -->
+	<entry key="signUpManager">
+		INSERT INTO MEMBER
+      	VALUES (SEQ_MEMBER_NO.NEXTVAL,
+      			?,?,?,DEFAULT,?,
+        'R', DEFAULT, ?)
+	</entry>
+	
+	
+	<!-- 저장된 게임 점수 조회 -->
+	<entry key="selectSaveScore">
+		SELECT SCORE, GAME_NO FROM 
+		RANK JOIN GAME USING(GAME_NO)
+		WHERE MEMBER_NO = ?
+		ORDER BY GAME_NO
+	</entry>
+	
+	<!-- 아이디 중복체크 -->
+	<entry key="DuplicateCheck">
+		SELECT COUNT(*) FROM MEMBER WHERE MEMBER_ID = ?
+	</entry>
+	
+	<!-- 회원 목록 -->
+	<entry key="selectMember">
+		SELECT * FROM (
+		    SELECT ROWNUM RNUM, A.* FROM (
+		            SELECT MEMBER_NO, MEMBER_NAME, 
+		            MEMBER_EMAIL, STATUS_YN, 
+		            MEMBER_BIRTHDAY, MANAGER_YN, MEMBER_ID
+		            FROM MEMBER
+		            ) A
+		    ) 
+		WHERE RNUM BETWEEN ? AND ?
+	</entry>
+	
+	<!-- 관리자 요청을 한 회원 목록 -->
+	<entry key="selectMemberRequest">
+		SELECT *FROM (
+		    SELECT ROWNUM RNUM, A.* FROM (
+		        SELECT MEMBER_NO, MEMBER_NAME, 
+		               MEMBER_EMAIL, STATUS_YN,
+		               MEMBER_BIRTHDAY, MANAGER_YN, MEMBER_ID
+		        FROM MEMBER
+		        WHERE MANAGER_YN = 'R'
+		        ) A
+		    )
+		WHERE RNUM BETWEEN ? AND ?
+	</entry>
+	
+	<!-- 회원 목록에서 이름으로 검색 -->
+	<entry key="selectMemberName">
+		SELECT * FROM (
+		    SELECT ROWNUM RNUM, A.* FROM (
+		            SELECT MEMBER_NO, MEMBER_NAME, 
+			               MEMBER_EMAIL, STATUS_YN, 
+			               MEMBER_BIRTHDAY, MANAGER_YN, MEMBER_ID
+		            FROM MEMBER
+                    WHERE MEMBER_NAME = ?
+		            ) A
+		    ) 
+		WHERE RNUM BETWEEN ? AND ?
+	</entry>
+	
+	<!-- 회원 목록 카운트 -->
+	<entry key="selectMemberCount">
+		SELECT COUNT(*) FROM MEMBER
+	</entry>
+	<entry key="selectMemberCount2">
+		SELECT COUNT(*) FROM MEMBER
+		WHERE MANAGER_YN = 'R'
+	</entry>
+	<entry key="selectMemberCount3">
+		SELECT COUNT(*) FROM MEMBER
+		WHERE MEMBER_NAME = ?
+	</entry>
+	
+	
+	
+	<!-- 매니저 업데이트 -->
+	<entry key="updateManager">
+		UPDATE MEMBER SET MANAGER_YN = ?
+		WHERE MEMBER_NO = ?
+	</entry>
+</properties>

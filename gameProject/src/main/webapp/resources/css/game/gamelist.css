@@ -1,0 +1,192 @@
+@import url('https://cdn.jsdelivr.net/npm/galmuri@latest/dist/galmuri.css');
+*{box-sizing: border-box;}
+body{margin: 0 auto;}
+/* 제일 큰 감싸는 영역 */
+.wrap{
+    /* 최소값만 정한이유는 안에 요소크기에 맞게 크기가 더 늘어날 수 있게 하려고 */
+    min-width: 1200px; /* min-width : 최소 width */
+    min-height: 100vh; 
+    display: flex;
+    flex-direction: row-reverse;
+    text-align: center;
+    font-family: "Galmuri14", sans-serif;
+}
+
+.main-footer-wrap{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    min-width: 1000px;
+}
+
+
+
+/* main 시작 */
+
+main{
+    min-width: 1000px;
+}
+
+/* 게임이미지슬라이드영역 */
+.slideArea{
+/*   display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 450px;
+    background-color: gray; */
+    
+}
+
+/* 검색창 (전체)영역 */
+.inputArea{
+    /* background-color: azure; */
+    width: 85%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 40px;
+}
+
+/* 돋보기모양 영역 */
+.inputArea > div:nth-of-type(1){
+    flex-basis: 5%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-left: 2px solid crimson;
+    border-top: 2px solid crimson;
+    border-bottom: 2px solid crimson;
+    border-radius: 10px 0 0 10px;
+}
+/* 돋보기 모양 */
+.inputArea > div:nth-of-type(1) > i{
+    font-size: 30px;
+    color: floralwhite;
+}
+
+/* 검색창 영역 */
+.inputArea > div:nth-of-type(2){
+    flex-basis: 85%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 2px solid crimson;
+    border-bottom: 2px solid crimson;
+}
+/* 검색창 */
+.inputArea > div:nth-of-type(2) > input{
+    width: 100%;
+    height: 40px;
+    background-color: black;
+    color: floralwhite;
+    border: 0;
+}
+/* 검색창 플레이스홀더*/
+.inputArea > div:nth-of-type(2) > input::placeholder{
+    color: floralwhite;
+}
+
+/* 검색 버튼 영역 */
+.inputArea > div:nth-of-type(3){
+    flex-basis: 10%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 2px solid crimson;
+    border-bottom: 2px solid crimson;
+    border-right: 2px solid crimson;
+    border-radius: 0 10px 10px 0;
+    background-color: antiquewhite;
+}
+/* 검색 버튼 */
+.inputArea > div:nth-of-type(3) > button{
+    width: 100%;
+    height: 100%;
+    border: 0;
+    background-color: black;
+    color: floralwhite;
+    border-radius: 0 8px 8px 0;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+/* 게임 리스트 (개당) 영역 */
+.gamelist{
+    min-width: 800px;
+    max-width: 1000px;
+    /* width: 85%; */
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 40px;
+    
+    /* border: 2px solid crimson; */
+    border-radius: 8px;
+}
+
+/* 이미지영역 */
+.gamelist > div:nth-of-type(1){
+    flex-basis: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: floralwhite;
+    
+}
+/* 이미지 */
+.gamelist > div:nth-of-type(1) > img{
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    object-fit: cover;
+}
+
+/* 제목영역 */
+.gamelist > div:nth-of-type(2){
+    flex-basis: 60%;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    color: floralwhite;
+    margin-left: 30px;
+}
+/* 제목 */
+.gamelist > div:nth-of-type(2) > p{
+    font-size: 20px;
+    font-weight: bold;
+}
+.gamelist > div:nth-of-type(2) > div{
+    font-size: 14px;
+}
+
+/* 버튼영역 */
+.gamelist > div:nth-of-type(3){
+    flex-basis: 20%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+/* play버튼 */
+.gamelist > div:nth-of-type(3) > a{
+    font-size: 25px;
+    cursor: pointer;
+    color: floralwhite;
+    text-decoration: none;
+}
+
+
+

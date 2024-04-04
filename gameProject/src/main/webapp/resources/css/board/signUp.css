@@ -1,0 +1,204 @@
+/* 회원가입.css */
+@charset "UTF-8";
+*{box-sizing: border-box;}
+body{margin: 0 auto;}
+/* 제일 큰 감싸는 영역 */
+.wrap{
+    /* 최소값만 정한이유는 안에 요소크기에 맞게 크기가 더 늘어날 수 있게 하려고 */
+    min-width: 900px; /* min-width : 최소 width */
+    min-height: 100vh; 
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color : black;
+}
+
+.main-footer-wrap{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    min-width: 900px;
+  }
+
+
+/* main 시작 */
+
+main{
+    min-width: 900px;
+   
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+
+}
+
+
+
+
+.signUp-area {
+    background-color: white; 
+    border-radius: 8px;
+     box-shadow: 0px 10px 20px gainsboro;
+    width: 600px;
+    height: auto;
+    padding: 20px;
+    margin-top : 20px;
+ 
+}
+
+.signUp-area p {
+    font-size: 30px;
+    text-align: center;
+    color : blackl;
+    font-weight : bold;
+}
+
+table{
+  margin: 0 auto;
+}
+
+input{
+    width: 100%;
+    border: 1px solid #bbb;
+    height: 35px;
+    margin: 10px 10px;
+    font-size: 12px;
+}
+
+th{
+  font-size: 18px;
+}
+
+
+
+/* #idCheckbtn{
+
+    height: 35px;
+    background-color: #666666;
+    color: white;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+} */
+
+#signUpbtn{
+    width: 110px;
+    height: 35px;
+    background-color: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+#idCheck-btn{
+  width: 100px;
+  margin-left: 10px;
+  height: 35px;
+  font-size: 13px;
+  border: none;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+
+#cancell{
+	display:inline-block;
+	width: 110px;
+	height: 35px;
+	border : 1px solid #a0a0a0;
+	border-radius : 5px;
+	font-size : 20px;
+	color : white;
+  background-color : #a0a0a0;
+  text-decoration: none;
+  /* margin-right: 100px; */
+    
+}
+
+.signUpmessage{
+  font-size: 13px;
+  display: inline-block;
+}
+
+#mailSend{
+ 
+  cursor: pointer;
+  
+  width: 100px;
+  height: 35px;
+  margin-left: 10px;
+  border: none;
+  background-color: black;
+  color: white;
+  font-size: 13px;
+  display: inline-block;
+}
+
+#authBtn{
+
+  cursor: pointer;
+
+  width: 100px;
+  height: 35px;
+  margin-left: 10px;
+  border: none;
+  background-color: black;
+  color: white;
+  font-size: 13px;
+  display: none;
+}
+
+/* footer */
+
+footer{
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  text-align: left;
+  padding-top: 10px;
+  width: 100%;
+  height: 250px;
+  background-color: black;
+  color: rgba(255,255,255,.5);;
+  font-size: 13px;
+  
+  
+  bottom: 0px;
+  position: absolute;
+
+  
+}
+footer >div{
+  margin-left: 40px;
+}
+footer >div>p{
+  margin-left: 20px;
+
+}
+footer >div>p:nth-of-type(3){
+  font-weight: bold;
+}
+
+
+.ft-img-wrap{
+  width: 150px;
+}
+
+ footer img{
+    width: 150px;
+    height: auto;
+  }
+
+.signUp-message{
+    font-size: 15px;
+    letter-spacing: -1px; /* 글씨, 글자 자간 간격 */
+}
+  
+
+.confirm{color: green;}
+.error{color: red;}
+

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+
+	<comment>board-sql.xml</comment> <!-- 프로젝트 -->
+
+	<!-- 게시판 이름 조회 -->
+	<entry key="selectBoardName">
+		SELECT CATEGORY_NAME
+		FROM CATEGORY
+		WHERE CATEGORY_NO = ?
+	</entry>
+
+
+	<!-- 특정 게시판 전체 게시글 수 조회 -->
+	<entry key="selectAllBoardList">
+		SELECT COUNT(*) FROM BOARD
+		WHERE CATEGORY_NO = ?
+		AND BOARD_STATUS = 'N'
+	</entry>
+
+
+	<!-- 특정 게시판 전체 게시글 조회 -->
+	<entry key="selectBoardList">
+		SELECT * FROM(
+		SELECT ROWNUM RNUM, A.* FROM(
+		SELECT BOARD_NO, BOARD_TITLE, BOARD_CONTENT, MEMBER_NAME, MEMBER_NO,
+		CATEGORY_NO, CATEGORY_NAME, MEMBER_PROFILE
+		FROM BOARD
+		JOIN MEMBER USING (MEMBER_NO)
+		JOIN CATEGORY USING (CATEGORY_NO)
+		WHERE CATEGORY_NO = ? AND BOARD_STATUS = 'N'
+		ORDER BY BOARD_NO DESC
+		) A
+		)
+		WHERE RNUM BETWEEN ? AND ?
+	</entry>
+
+	<!-- 게시글 상세 조회 -->
+	<entry key="selectBoardView">
+		SELECT BOARD_NO,BOARD_TITLE,BOARD_CONTENT,
+		TO_CHAR(BOARD_DATE,'YYYY"년" MM"월" DD"일" HH24:MI:SS') BOARD_DATE,
+		MEMBER_NAME, MEMBER_NO, BOARD_TITLE, CATEGORY_NO, BOARD_STATUS, CATEGORY_NAME,
+		MEMBER_ID
+		FROM BOARD
+		JOIN MEMBER USING(MEMBER_NO)
+		JOIN CATEGORY USING(CATEGORY_NO)
+		WHERE BOARD_NO = ?
+		AND BOARD_STATUS ='N'
+	</entry>
+
+	<!-- 게시글 좋아요 수 -->
+	<entry key="boardLikeCount">
+		SELECT COUNT(*)
+		FROM BOARDLIKE
+		WHERE BOARD_NO = ?
+	</entry>
+	
+	<!-- 게시글 좋아요 확인(판단) -->
+	<entry key="boardLikeCheck">
+		SELECT COUNT(*)
+		FROM BOARDLIKE
+		WHERE MEMBER_NO = ?
+		AND BOARD_NO = ?
+	</entry>
+	
+	<!-- 게시글 좋아요 추가 -->
+	<entry key="boardLikeUpdate">
+		INSERT INTO BOARDLIKE VALUES(?, ?)
+	</entry>
+	
+	<!-- 게시글 좋아요 삭제 -->
+	<entry key="boardLikeDelete">
+		DELETE FROM BOARDLIKE
+		WHERE BOARD_NO = ?
+		AND MEMBER_NO = ?
+	</entry>
+
+	<!-- 다음 게시글 번호 조회 -->
+	<entry key="nextBoardNo">
+		SELECT SEQ_BOARD_NO.NEXTVAL FROM DUAL
+	</entry>
+
+	<!-- 게시글 작성 -->
+	<entry key="insertBoard">
+		INSERT INTO BOARD VALUES(?,?,?,DEFAULT,?,?,DEFAULT)
+	</entry>
+
+	<!-- 게시글 이미지 삽입 -->
+	<entry key="insertBoardImage">
+		INSERT INTO BOARD_IMG
+		VALUES(SEQ_BOARD_IMG_NO.NEXTVAL,?,?)
+	</entry>
+
+	<!-- 게시글에 첨부된 이미지 조회 -->
+	<entry key="selectImageList">
+		SELECT * FROM BOARD_IMG
+		WHERE BOARD_NO = ?
+		ORDER BY IMAGE_NO DESC
+	</entry>
+
+	<!-- 게시글 제목,내용수정 -->
+	<entry key="updateBoard">
+		UPDATE BOARD SET BOARD_TITLE = ?, BOARD_CONTENT =? , CATEGORY_NO = ? WHERE BOARD_NO = ?
+	</entry>
+	<!-- 게시글 이미지 수정  -->
+	<entry key="updateBoardImage">
+		UPDATE BOARD_IMG SET IMAGE_PATH = ? WHERE BOARD_NO =? AND IMAGE_NO =?
+	</entry>
+	<!-- 게시글이미지삭제 -->
+	<entry key="deleteBoardImage">
+		DELETE FROM BOARD_IMG WHERE BOARD_NO =? AND IMAGE_NO
+		IN (
+	</entry>
+	
+	<!-- 게시글 삭제 -->
+	<entry key="deleteBoard">
+		UPDATE BOARD SET BOARD_STATUS = 'Y' WHERE BOARD_NO = ?
+	</entry>
+	
+	<!-- 게시글 신고 -->
+	<entry key="boardViewReport">
+		INSERT INTO REPORT VALUES
+		(SEQ_REPORT_NO.NEXTVAL, ?, 'N', ?)
+	</entry>
+	
+	<!-- 신고된 게시글 취소(목록에서 제거 버튼)처리 -->
+	<entry key="boardCancel">
+		DELETE FROM REPORT
+		<!-- SET REPORT_YN = 'Y' 버튼 노출 이슈로 삭제 처리로 변경-->
+		WHERE BOARD_NO = ?
+	</entry>
+	
+	<!-- 신고된 게시글 삭제(삭제버튼)처리 -->
+	<entry key="boardDelete">
+		UPDATE BOARD
+		SET BOARD_STATUS = 'Y'
+		WHERE BOARD_NO = ?
+	</entry>
+
+	<!-- 특정 게시판에서 조건을 만족하는 게시글 수 조회 -->
+	<entry key="searchListCount">
+		SELECT COUNT(*)
+		FROM BOARD
+		JOIN MEMBER USING(MEMBER_NO)
+		JOIN CATEGORY USING(CATEGORY_NO)
+		WHERE CATEGORY_NO = ?
+		AND BOARD_STATUS = 'N'
+	</entry>
+		
+	<!-- 특정 게시판에서 조건을 만족하는 게시글 조회 -->
+	<entry key="searchBoardList1">
+		SELECT * FROM( SELECT ROWNUM RNUM, A.* FROM( SELECT
+		BOARD_NO, BOARD_TITLE, BOARD_CONTENT, MEMBER_NAME, MEMBER_NO,
+		CATEGORY_NO, CATEGORY_NAME, MEMBER_PROFILE
+		FROM BOARD 
+		JOIN MEMBER USING (MEMBER_NO)
+		JOIN CATEGORY USING (CATEGORY_NO)
+		WHERE CATEGORY_NO = ? 
+		AND BOARD_STATUS = 'N' 
+	</entry>
+	
+	<entry key="searchBoardList2">
+			ORDER BY BOARD_NO DESC 
+			) A 
+		) WHERE RNUM BETWEEN ? AND ?
+	</entry>
+	
+	<!-- 관리자가 신고된 게시글의 한에서만 삭제 및 목록삭제 버튼 노출 체크용 -->
+	<entry key="reportConfirm">
+		SELECT COUNT(*)
+		FROM REPORT
+		WHERE BOARD_NO = ?
+	</entry>
+	
+	
+</properties>

@@ -1,0 +1,248 @@
+@charset "UTF-8";
+
+*{box-sizing: border-box;}
+body{margin: 0 auto;}
+/* 제일 큰 감싸는 영역 */
+.wrap{
+    /* 최소값만 정한이유는 안에 요소크기에 맞게 크기가 더 늘어날 수 있게 하려고 */
+    min-width: 1000px; /* min-width : 최소 width */
+    min-height: 100vh; 
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+}
+
+/* main */
+
+main{
+    margin-top: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* min-height: 600px; */
+    width: 100%;
+    height: 100%;
+    
+}
+
+.main-content{
+    width: 600px;
+    min-height: 500px;
+    background-color: rgba(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.main-idpwFind{
+    width: 100%;
+    height: 100%;
+}
+
+.idpw-choice{
+    display: flex;
+    text-align: center;
+}
+.idpw-choice > a{
+    
+    width: 50%;
+    height: 50px;
+    color: black;
+    background-color: white;
+    /* border: 1px solid black; */
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 17px;
+    line-height: 50px;
+
+    background-color: rgb(194, 194, 194);
+}
+
+
+/* 처음 화면 */
+.idpwFind-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 450px;
+    
+}
+
+
+
+.idpwFind-form>fieldset{
+    margin-top: 30px;
+    padding-left: 0;
+    padding-right: 0;
+    display: flex;
+    flex-direction: column;
+    border: none;
+    align-items: center;
+    height: 80%;
+}
+.idpwFind-form>fieldset>p{
+    display: block;
+    width: 100%;
+    padding-left: 25px;
+    margin: 15px 0;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#findInput1{
+    width: 90%;
+    height: 50px;
+    font-size: 14px;
+    padding-left: 10px;
+    
+}
+#findInput2{
+    width: 90%;
+    height: 50px;
+    font-size: 14px;
+    padding-left: 10px;
+}
+
+.btn-wrap{
+    width: 100%;
+    display: flex;
+    height: 20%;
+    justify-content: center;
+    color: #fff;
+   
+}
+.back{
+    /* margin-top: 30px; */
+    border: none;
+    width: 150px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: rgb(100, 96, 96);
+    height: 50px;
+    cursor: pointer;
+    line-height: 50px;
+    text-align: center;
+    text-decoration: none;
+}
+#find-btn{
+    width: 150px;
+    color: #fff;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 50px;
+    /* background-color: rgb(70, 69, 117); */
+    background-color: black;
+    height: 50px;
+    cursor: pointer;
+}
+
+/* 아이디 찾기 눌렀을 경우 (아이디 목록 나오는 곳) */
+.idResult-wrap{
+    display: none;
+    width: 100%;
+    height: 450px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.idResult-wrap>p{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.idResult-wrap > a{
+    margin-top: 30px;
+}
+
+.idResult-box{
+    padding-top: 10px;
+    overflow: auto;
+    width: 300px;
+    height: 150px;
+    border: 1px solid #ddd;
+
+}
+
+.idResult{
+    width: 100%;
+    height: 30px;
+    text-align: center;
+}
+/* 비밀번호 찾기 눌렀을 경우( 비밀번호 재설정 하는 곳) */
+.pwResult-wrap{
+    display: none;
+    width: 100%;
+    height: 450px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.pwResult-wrap p{
+ font-size: 18px;
+ font-weight: bold;
+}
+
+
+/* 새비밀번호 */
+input[type="password"]{
+    width: 100%;
+    height: 40px;
+    margin-bottom: 30px;
+    font-size: 12px;
+}
+
+
+#pwReset-btn{
+    width: 150px;
+    height: 50px;
+    cursor: pointer;
+    border: none;
+    /* background-color: rgb(70, 69, 117); */
+    background-color: black;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    margin-right: 20px;
+}
+
+/* footer */
+footer{
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    text-align: left;
+    padding-top: 10px;
+    width: 100%;
+    height: 250px;
+    background-color: black;
+    color: rgba(255,255,255,.5);;
+    font-size: 13px;
+  
+    
+  }
+
+  footer img{
+    width: 150px;
+    height: auto;
+  }
+  footer >div{
+    margin-left: 40px;
+  }
+  footer >div>p{
+    margin-left: 20px;
+  
+  }
+  footer >div>p:nth-of-type(3){
+    font-weight: bold;
+  }
+  
+  
+  .ft-img-wrap{
+    width: 150px;
+  }

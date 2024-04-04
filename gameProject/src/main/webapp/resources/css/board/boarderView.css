@@ -1,0 +1,448 @@
+*{box-sizing: border-box;}
+body{margin: 0 auto;}
+/* 제일 큰 감싸는 영역 */
+.wrap{
+    /* 최소값만 정한이유는 안에 요소크기에 맞게 크기가 더 늘어날 수 있게 하려고 */
+    min-width: 1200px; /* min-width : 최소 width */
+    min-height: 100vh; 
+    display: flex;
+    flex-direction: row-reverse;
+    text-align: center;
+}
+
+.main-footer-wrap{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    min-width: 1000px;
+}
+
+/* main 시작 */
+main{
+    min-width: 1000px;
+    background-color: black;
+    color: white;
+}
+
+
+
+/* 게시글영역 */
+.boarderMain{
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* 게시글제목영역 */
+.boarderTitle > :nth-child(1){
+    font-size: 60px;
+    font-weight: bold;
+    margin-top: 50px;
+}
+#like{
+    color: white;
+    cursor: pointer;
+}
+#like:hover{
+    transition-duration: 0.5s;
+    font-size: 1.2em;
+}
+#like:not(:hover) {
+    transition: 0.5s ease-out;
+}
+
+#unlike{
+    margin-top: 10px;
+    color: gray;
+    cursor: pointer;
+}
+
+#likeNum{
+    color: white;
+    text-decoration: double;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+/* 게시글 정보 영역(게시글 삭제, 수정, 좋아요 및 정보) */
+.boarderTitle > :nth-child(2){
+    display: flex;
+    justify-content: space-between;
+    
+    margin-top: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #d3d3d3;
+}
+
+/* 게시글 삭제 수정 영역 */
+.boarderTitle > :nth-child(2) > :nth-child(1){
+    width: 190px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#delete{
+    color: palevioletred;
+    font-weight: bold;
+}
+#delete:hover{
+    text-decoration: underline;
+}
+#correction{
+    color: paleturquoise;
+    font-weight: bold;
+}
+#correction:hover{
+    text-decoration: underline;
+}
+.boarderTitle > :nth-child(2) > :nth-child(1) > :nth-child(n) > a{
+    color: black;
+    text-decoration: none;
+}
+
+/* 게시글 날짜 카테고리 영역 */
+.boarderTitle > :nth-child(2) > :nth-child(2){
+    width: 300px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    margin-left: -100px;
+
+    /* background-color: azure; */
+}
+
+/* 좋아요 영역 */
+.boarderTitle > :nth-child(2) > :nth-child(3){
+    flex-basis: 100px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+
+    /* background-color: beige; */
+}
+
+/* 게시글 내용 영역 */
+.boarderDetail{
+    text-align: start;
+    letter-spacing: 2px;
+    line-height: 25px;
+    margin-top: 10px;
+    
+    /* background-color: blanchedalmond; */
+}
+
+.boarderDetailImageArea{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 350px;
+    /* background-color: aliceblue; */
+    margin-top: -30px;
+}
+.boarderDetailImageArea > div > img{
+    width: 400px;
+    height: 300px;
+    border: 1px solid white;
+    border-radius: 7px 2px 7px 2px;
+    margin-top: 30px;
+}
+
+/* 목록으로버튼 */
+#callback{
+    cursor: pointer;
+}
+#callback:hover{
+    text-decoration: underline;
+}
+
+#callbackPage{
+    cursor: pointer;
+}
+#callbackPage:hover{
+    text-decoration: underline;
+}
+
+/* 게시글 신고 작성 영역 */
+.boarderReportArea{
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: end;
+
+    border-top: 1px solid #eee;
+
+    margin-top: 15px;
+    padding-top: 20px;
+}
+.textArea{
+    word-break:break-all;
+}
+textarea::placeholder {
+    color: whitesmoke;
+    font-weight: bold;
+}
+textarea::-webkit-input-placeholder {
+    color: whitesmoke;
+    font-weight: bold;
+}
+textarea:-ms-input-placeholder {
+    color: whitesmoke;
+    font-weight: bold;
+}
+
+/* 게시글 신고 글자 */
+#boarderReportBtn{
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+}
+#boarderReportBtn:hover{
+    color: white;
+    transition-duration: 0.5s;
+    font-size: 1.1em;
+}
+#boarderReportBtn:not(:hover) {
+    transition: 0.5s ease-out;
+}
+
+/* 신고작성내역영역 */
+.boarderReportArea > :nth-child(2){
+    margin: 10px 0;
+}
+/* 신고작성글자 */
+#reportText{
+    width: 100%;
+    height: 6.25em;
+    border: 0.1px solid white;
+    resize: none;
+    background-color: black;
+    color: white;
+    outline: 1px solid white;
+    
+    margin-bottom: 15px;
+}
+/* 신고버튼 */
+.reportBtn > button{
+    width: 100px;
+    height: 30px;
+    margin-left: 30px;
+    border: 0.5px solid white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.reportBtn > button:hover{
+    transition: 0.5s;
+    background-color: black;
+    color: white;
+}
+.reportBtn > button:not(:hover){
+    transition: 0.5s ease-out;
+}
+
+/* 댓글 영역 */
+.commentAreaPart{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
+}
+/* 댓글 영역 */
+#commentArea{
+    width: 100%;
+    max-height: 550px;
+    display: flex;
+    flex-direction: column;
+    text-overflow: auto;
+}
+
+/* 댓글(글씨) */
+.comment{
+    text-align: start;
+    font-size: 18px;
+    font-weight: bolder;
+    color: white;
+    padding-bottom: 10px;
+}
+/* 댓글(글씨)밑줄<hr> */
+/* .commentArea > :nth-child(2){
+    width: 100%;
+} */
+
+/* 댓글 목록 영역 */
+.replyRow{
+    display: flex;
+    width: 100%;
+    min-height: auto;
+    max-height: auto;
+    align-items: center;
+    margin-top: 5px;
+    border-top: 0.1px solid rgb(52, 58, 64);
+}
+
+/* 댓글작성일자영역 */
+.replyCreateArea{
+    display: flex;
+    font-size: 12px;
+
+    /* background-color: blue; */
+}
+/* 삭제 태그 */
+.delBtn{
+    text-decoration: none;
+    margin-left: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.delBtn:hover{
+    text-decoration: underline;
+}
+/* 작성자명 */
+.replyWriter{
+    font-size: 16px;
+    font-weight: bold;
+}
+/* 댓글내용 */
+.replyContent{
+    width: 100%;
+    min-height: auto;
+    display: flex;
+    text-align: start;
+    justify-content: start;
+    align-items: start;
+    font-size: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 10px;
+    word-break:break-all;
+}
+/* 댓글작성일자(날짜) */
+.createDate{
+    margin-left: 5px;
+}
+/* 댓글 프로필 이미지 영역 */
+.profileImg{
+    display: flex;
+    border-radius: 7px;
+}
+/* 댓글 프로필 이미지 */
+#profile-image{
+    width: 40px;
+    height: 40px;
+    margin: 10px;
+    border-radius: 50%;
+    border: 1px solid white;
+}
+
+/* 댓글 더보기 영역 */
+.commentMoreArea{
+    /* background-color: blueviolet; */
+    font-size: 20px;
+    /* border-top: 3px solid cadetblue; */
+    /* border-bottom: 3px solid cadetblue; */
+    padding: 20px 0;
+}
+/* 댓글더보기버튼 */
+.commentMoreArea > div > button:hover{
+    font-weight: bold;
+    opacity: 1;
+}
+#deleteBoard{
+    border-radius: 7px;
+    border: 1px solid crimson;
+    background-color: black;
+    color: whitesmoke;
+    width: 45px;
+    height: 27px;
+    font-size: 14px;
+    cursor: pointer;
+}
+#cancelBoard{
+    border-radius: 7px;
+    border: 1px solid crimson;
+    background-color: black;
+    color: whitesmoke;
+    width: 45px;
+    height: 27px;
+    font-size: 14px;
+    cursor: pointer;
+}
+#deleteBoard:hover{
+    border: 1px solid white;
+    color: crimson;
+    transition-duration: 0.5s;
+    font-weight: bold;
+}
+#deleteBoard:not(:hover){
+    transition: 0.5s ease-out;
+}
+
+#cancelBoard:hover{
+    border: 1px solid white;
+    color: crimson;
+    transition-duration: 0.5s;
+    font-weight: bold;
+}
+#cancelBoard:not(:hover){
+    transition: 0.5s ease-out;
+}
+
+/* 댓글작성영역 */
+.commentWriterArea{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin-top: 15px;
+}
+/* 댓글작성(글씨) */
+.commentWriterArea > :nth-child(1){
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+/* 댓글내용작성 및 등록 영역 */
+.commentInput{
+    width: 100%;
+    display: flex;
+}
+/* 댓글내용영역 */
+.commentInput > :nth-child(1){
+    display: flex;
+    font-size: 14px;
+    width: 100%;
+}
+#comment{
+    border: 2px solid white;
+    border-radius: 0 7px 7px 0;
+    background-color: black;
+    color: white;
+    padding: 0;
+    font-weight: bold;
+}
+#comment:hover{
+    transition-duration: 0.5s;
+    background-color: white;
+    color: black;
+    font-weight: bold;
+}
+#comment:not(:hover){
+    transition: 0.5s ease-out;
+}
+/* 댓글작성 텍스트에리아 영역 */
+#commentInputText{
+    width: 100%;
+    height: 6.25em;
+    border: 1px solid white;
+    resize: none;
+    overflow: auto;
+    border-radius: 7px 0 0 7px;
+}
+.commentWriterBtn > button{
+    width: 80px;
+    height: 6.25em;
+    border: 3px solid cadetblue;
+    cursor: pointer;
+    /* background-color: cadetblue; */
+}
+

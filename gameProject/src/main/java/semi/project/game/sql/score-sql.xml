@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<comment>score-sql.xml</comment>
+
+	<!-- 게임스코어저장 -->
+	<entry key="saveScore">
+		INSERT INTO "RANK" VALUES(?,?,?)
+	</entry>
+
+	<!-- 게임목록노출 -->
+	<entry key="gameList">
+		SELECT GAME_NO, GAME_NAME, GAME_IMG FROM GAME
+	</entry>
+</properties>
