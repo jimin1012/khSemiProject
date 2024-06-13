@@ -22,6 +22,10 @@ KH 세미 프로젝트(게임)
      <ul>
          <li><a href="https://www.notion.so/e007f50ac0024c00837bbd880fd95f44">화면 참조</a></li>
      </ul>
+     <h2 style="border-bottom: 1px solid #d8dee4; color: #282d33;"> 실행 시 화면 </h2> <br> 
+     <ul>
+         <li><a href="https://www.notion.so/e007f50ac0024c00837bbd880fd95f44">화면 참조</a></li>
+     </ul>
     <div style="text-align: left;"> <a href=https://blog.naver.com/jimin10722> <img src="https://img.shields.io/badge/Naver-03C75A?style=for-the-badge&logo=Naver&logoColor=white&link=https://blog.naver.com/jimin10722"> </a>
          <a href=mailto:iamjimin0722@gmail.com> <img src="https://img.shields.io/badge/Gmail-EA4335?style=for-the-badge&logo=Gmail&logoColor=white&link=mailto:iamjimin0722@gmail.com"> </a>
           </div>  <br> 
