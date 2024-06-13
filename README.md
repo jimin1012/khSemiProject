@@ -275,6 +275,8 @@ commit;
  <span><a href="https://amplified-success-14b.notion.site/8853f975f871414a852773459256657a">세미프로젝트</a></span>
  <br>
  <br>
+ <br>
+ <br>
     <div style="text-align: left;"> <a href=https://blog.naver.com/jimin10722> <img src="https://img.shields.io/badge/Naver-03C75A?style=for-the-badge&logo=Naver&logoColor=white&link=https://blog.naver.com/jimin10722"> </a>
          <a href=mailto:iamjimin0722@gmail.com> <img src="https://img.shields.io/badge/Gmail-EA4335?style=for-the-badge&logo=Gmail&logoColor=white&link=mailto:iamjimin0722@gmail.com"> </a>
           </div>  <br> 
