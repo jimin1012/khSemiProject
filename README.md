@@ -23,7 +23,7 @@ KH 세미 프로젝트(게임)
          <li><a href="https://www.notion.so/e007f50ac0024c00837bbd880fd95f44">화면 참조</a></li>
      </ul>
      <h2 style="border-bottom: 1px solid #d8dee4; color: #282d33;">ERD </h2> <br> 
-     <img src="https://file.notion.so/f/f/9ea9ba60-1184-44bf-b0b7-c58d1b73dd6a/14f7529b-5941-4f9e-858a-1edc9ba656a3/Untitled.png?id=5c93140f-1f4f-4186-aae5-66ebdf4532e3&table=block&spaceId=9ea9ba60-1184-44bf-b0b7-c58d1b73dd6a&expirationTimestamp=1718344800000&signature=m45epEEmAAnvcBl_LTHG6_F4XII1BtXl2QIYAWZ9URI&downloadName=Untitled.png">
+     <img src="https://github.com/jimin1012/khSemiProject/assets/154505232/04eb30cf-bb0c-4460-bc85-eafe247e2990">
      <h2 style="border-bottom: 1px solid #d8dee4; color: #282d33;"> SQL문 </h2> <br>
      <details>
          <summary>
